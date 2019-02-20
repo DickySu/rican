@@ -6,14 +6,11 @@
 		<title>日灿律师</title>
 		<link href="css/bootstrap.min.css" rel="stylesheet">
 		<link href="css/index.css" rel="stylesheet">
-		<style type="text/css">
-			
-			/* 暂时 */
-		</style>
-		<!--[if lt IE 9]>
+		
+		[if lt IE 9]>
       <script src="js/html5shiv.min.js"></script>
       <script src="js/respond.min.js"></script>
-    <![endif]-->
+    <![endif]
 	</head>
 	<body>
 		
@@ -94,8 +91,8 @@
 								<li><a href="#Safari">房地产业务</a></li>
 								<li><a href="#Opera">公司或个人顾问业务</a></li>
 								<li><a href="#IE">合同业务</a></li>
-								<li><a href="#IE">婚姻继承业务</a></li>
-								<li><a href="#IE">涉港澳台侨业务</a></li>
+								<!-- <li><a href="#IE">婚姻继承业务</a></li>
+								<li><a href="#IE">涉港澳台侨业务</a></li> -->
 							</ul>
 						</li>
 						<li><a href="#">经典案例</a></li>
@@ -326,6 +323,39 @@
 
 		<script src="js/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
-		
+		<script type="text/javascript">
+			$(function(){
+				
+				$("#damu-nav li a").click(function(e){
+					var href = $(this).attr("href");
+					$(document).scrollTop($("#damu-tab").offset().top-100);
+					$("#damu-list li a[href="+href+"]").tab("show");
+					e.preventDefault();
+				})
+				
+				
+			   $('.carousel').carousel({
+				  interval: 3000,
+				  pause:null,
+				  wrap:true
+				})
+			    
+			    $(".damu-pause").click(function(){
+			    	 $('.carousel').carousel('pause');
+			    })
+			    $(".damu-start").click(function(){
+			    	 $('.carousel').carousel('cycle');
+			    })
+			    
+		     //代表每次轮播执行的执行触发
+		     $('.carousel').on("slide.bs.carousel",function(){
+//			     	console.log("carousel1");
+		     })
+		     //代表轮播每次过渡完成的时候触发
+		     $('.carousel').on("slid.bs.carousel",function(){
+//			     	console.log("carousel2");
+		     })
+			})
+    </script>
 	</body>
 </html>
